@@ -1,4 +1,4 @@
-package q1_to_20;
+package q1_20;
 import java.util.HashMap;
 import java.util.Map;
 /*
