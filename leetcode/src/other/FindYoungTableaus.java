@@ -11,18 +11,13 @@ package other;
  */
 public class FindYoungTableaus {
 	
-	public boolean find2(int target, int [][] array) {
-		
+	public boolean find2(int target, int [][] array) {	
 		if(array.length == 0 || array[0].length==0 ) {
 			return false;
-		} else if (array[0].length == 0 ) {
-			return false;
-		}else if(target < array[0][0] || target>array[array.length-1][array[0].length-1] ) {
-			return false;
-		}else {
-			
 		}
-		
+		if(target < array[0][0] || target>array[array.length-1][array[0].length-1] ) {
+			return false;
+		}
 		int i = array.length-1, j = 0;
 		while( i>=0 && j<array[0].length ) {
 			if(target == array[i][j]) {

@@ -8,6 +8,7 @@ package other;
  * 	如果是斐波拉契数列,解法就更简单了
  */
 public class JumpFloor {
+	//方法一,用一个静态的n保存每一种可能次数,然后采用递归累加
 	private static int n;
 	public int jumpFloor(int target) {
 		n=0;
@@ -15,7 +16,7 @@ public class JumpFloor {
 	    return n;
 	}
 	
-	private  void jumpFloors(int target) {
+	private void jumpFloors(int target) {
 		if(target == 0) {
 			n++;
 		} else if(target < 0) {
@@ -24,5 +25,17 @@ public class JumpFloor {
 			jumpFloors(target-1);
 			jumpFloors(target-2);
 		}
+	}
+	//方法二,直接使用斐波拉契数列求解
+	public int jumpFloor2(int target) {
+		int i = 0;
+		int j = 1;
+		int k = 0;
+		for (int m = 0; m < target; m++) {
+			k = i+j;
+			j = i;
+			i = k;
+		}
+		return k;
 	}
 }
