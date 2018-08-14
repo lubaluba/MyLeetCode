@@ -7,7 +7,7 @@ package other;
 public class Power {
 	public double power(double base, int exponent) {
 		double result = 1;
-		if(exponent == 0) {
+		if (exponent == 0) {
 			return result;
 		}
 		
@@ -16,7 +16,7 @@ public class Power {
 		}
 		
 		if (exponent < 0) {
-			result = 1/result ;
+			result = 1/result;
 		}
 		return result;
 	}

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * 	同时用一个变量count保存走过的总次数,当count等于矩阵大小时,说明走完了。
  */
 public class PrintMatrix {	
+	//方法一,思路清晰,但是代码过长,需要考虑过多的情况
 	public ArrayList<Integer> printMatrix(int [][] matrix) {
 		ArrayList<Integer> list = new ArrayList<>();
 		int cols = matrix[0].length;
@@ -20,7 +21,6 @@ public class PrintMatrix {
 		int run = 0;
 		int up = 0, down = rows-1, left = 0, right = cols-1;
 		while(count < cols*rows) {
-			System.out.println(i+" "+j);
 			list.add(matrix[i][j]);
 			count++;
 			if (run == 0) {
@@ -59,4 +59,33 @@ public class PrintMatrix {
 		}
 		return list;
     }
+	
+	//方法二
+	public ArrayList<Integer> printMatrix2(int [][] matrix) {
+		ArrayList<Integer> result = new ArrayList<>();
+		if(matrix.length == 0) {
+			return result;
+		}
+		int n = matrix.length;
+		int m = matrix[0].length;
+		if(m == 0) {
+			return result;
+		}
+		int layers = (Math.min(n,m)-1)/2 + 1;//这个是层数
+		for(int i = 0; i < layers; i++){
+			for(int k = i; k < m-i; k++) {
+				result.add(matrix[i][k]);//左至右
+			}
+			for(int j = i+1; j < n-i; j++) {
+				result.add(matrix[j][m-i-1]);//上至下
+			}
+			for (int k = m-i-2; (k >= i) && (n-i-1 != i); k--) {
+				result.add(matrix[n-i-1][k]);//右至左
+			}
+			for (int j = n-i-2; (j > i) && (m-i-1 != i); j--) {
+				result.add(matrix[j][i]);//下至上
+			}
+		}
+		return result;
+	}
 }

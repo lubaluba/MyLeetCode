@@ -8,24 +8,16 @@ package other;
  *	所以总的排列方式应该依旧是一个斐波拉契数列
  */
 public class RectCover {
-	public static void main(String[] args) {
-		System.out.println( new RectCover().fectCover(5));
-	}
     public int fectCover(int target) {
-    	
-    	if (target == 0 || target == 1) {
-    		return target;
-    	} else {
-    		int a = 1;
-    		int b = 1; 
-    		int c = 1;
-    		for (int i = 1; i < target; i++) {
-    			c = a+b;
-    			b = a;
-    			a = c;
-    		}
-    		return c;
+    	int x = 0;
+    	int y = 1;
+    	int z = 0;
+    	for (int i = 1; i <= target; i++) {
+    		z = x+y;
+    		y = x;
+    		x = z;
     	}
+    	return z;
     }
 
 }

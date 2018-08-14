@@ -8,8 +8,6 @@ package other;
  *	首先我们使用两个指针分别指向头尾,然后找到其中间元素，用中间元素和头比较,如果中间元素大于头,说明在右边,否则在左边
  */
 public class MinNumberInRotateArray {
-	public static void main(String[] args) {
-	}
 	public  int minNumberInRotateArray(int [] array) {
 		if(array == null || array.length == 0){
 			return 0;
@@ -44,5 +42,5 @@ public class MinNumberInRotateArray {
 			}
 		}
 		return min;
-	}
+	}	
 }

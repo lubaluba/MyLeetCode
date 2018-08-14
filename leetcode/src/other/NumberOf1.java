@@ -7,14 +7,11 @@ package other;
  * 此时再做位运算每次都能减少一位1,同时将其置为0,最后等所有的位数都为0,即=0时,结束
  */
 public class NumberOf1 {
-	public static void main(String[] args) {
-		System.out.println(new NumberOf1().numberOf1(7));
-	}
 	public int numberOf1(int n) {
         int count = 0;
         while (n != 0) {
         	count ++;
-        	n = n &(n-1);
+        	n = n & (n-1);
         }
         return count;
     }
