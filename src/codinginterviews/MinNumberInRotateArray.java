@@ -8,6 +8,12 @@ package codinginterviews;
  *	首先我们使用两个指针分别指向头尾,然后找到其中间元素，用中间元素和头比较,如果中间元素大于头,说明在右边,否则在左边
  */
 public class MinNumberInRotateArray {
+	public static void main(String[] args) {
+		MinNumberInRotateArray m = new MinNumberInRotateArray();
+		int[] arr = {1,2,3,4,5,6,7};
+		System.out.println(m.minNumberInRotateArray(arr));
+	}
+	//非递归版
 	public  int minNumberInRotateArray(int [] array) {
 		if(array == null || array.length == 0){
 			return 0;
@@ -43,4 +49,21 @@ public class MinNumberInRotateArray {
 		}
 		return min;
 	}	
+	
+	//递归版
+	public int minNumberInRotateArray2(int [] array) {
+		return binarySearch(array, 0, array.length - 1);
+	}
+	public int binarySearch(int [] arr, int start, int end) {
+		int mid = (start + end)/2;
+		if (end - start == 1) {
+			return arr[end];
+		}
+		if (arr[mid] >= arr[start]) {
+			return binarySearch(arr, mid, end);
+		} else if (arr[mid] <= arr[start]) {
+			return binarySearch(arr, start, mid);
+		}	
+		return -1;
+	}
 }
